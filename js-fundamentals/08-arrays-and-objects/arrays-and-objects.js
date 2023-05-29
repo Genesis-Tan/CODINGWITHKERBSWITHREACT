@@ -1,4 +1,21 @@
-(function() {
-  // write follow-along code below
-  
+(function () {
+  const cars = ["Nissan Almera", "Toyota Vios", "Mitsubishi Mirage G4"];
+
+  console.log(cars.length); // returns number of elements
+  cars.sort(); // sorts the array
+
+  console.log(cars[cars.length - 1]); // accesses the last element of the array
+
+  describe("Filter function", () => {
+    test("it should filter by a search term (link)", () => {
+      const input = [
+        { id: 1, url: "https://www.url1.dev" },
+        { id: 2, url: "https://www.url2.dev" },
+        { id: 3, url: "https://www.link3.dev" },
+      ];
+      const output = [{ id: 3, url: "https://www.link3.dev" }];
+
+      expect(filterByTerm(input, "link")).toEqual(output);
+    });
+  });
 })();
