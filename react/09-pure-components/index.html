@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Pure Components</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="text/babel">
+      // write follow-along code below
+      function Recipe({ drinkers }) {
+        return (
+          <ol>
+            <li>Boil {drinkers} cups of water.</li>
+            <li>
+              Add {drinkers} spoons of tea; {0.5 * drinkers} spoons of spice.
+            </li>
+            <li>
+              Add {0.5 * drinkers} cups of milk to boil and sugar to taste.
+            </li>
+          </ol>
+        );
+      }
+
+      function App() {
+        return (
+          <div>
+            <Recipe drinkers={18} />
+          </div>
+        );
+      }
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>
