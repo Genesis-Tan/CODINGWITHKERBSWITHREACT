@@ -19,6 +19,9 @@ function clicked() {
     img.style.transform = "scale(1)";
   }, 200);
 }
+var directions = ["up", "down", "left", "right"];
+var randomDirection = directions[Math.floor(Math.random() * directions.length)];
+document.getElementById("marki")[0].setAttribute("direction", randomDirection);
 
 window.onload = function () {
   img = document.getElementById("image");

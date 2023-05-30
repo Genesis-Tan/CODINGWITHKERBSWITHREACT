@@ -10,11 +10,43 @@
       src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
       crossorigin
     ></script>
+
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
     <title>Hello World</title>
   </head>
   <body>
     <h1>Hello React</h1>
     <!-- write follow along code below -->
-
+    <div id="root">
+      <script type="text/javascript">
+        // const list = React.createElement("ul", {style:{color:"blue"}},
+        // React.createElement("li", null,"Apple"),
+        // React.createElement("li", null, "Orange"),
+        // React.createElement("li", null, "Banana"),
+        // React.createElement("li", null, "Grapes"),
+        // React.createElement("li", null, "Guava"));
+      </script>
+      <script type="text/babel">
+        function Header() {
+          return <h1 style={{ backgroundColor: "blue" }}>todo list</h1>;
+        }
+        function Subheader() {
+          return <h2 style={{ backgroundColor: "aquamarine" }}>Marc</h2>;
+        }
+        function Subheader1() {
+          return <h2 style={{ backgroundColor: "hotpink" }}>Steven</h2>;
+        }
+        function Subheader2() {
+          return <h2 style={{ backgroundColor: "turquoise" }}>Clemen</h2>;
+        }
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(
+          <>
+            <Header /> <Subheader /> <Subheader1 /> <Subheader2 />
+          </>
+        );
+      </script>
+    </div>
   </body>
 </html>

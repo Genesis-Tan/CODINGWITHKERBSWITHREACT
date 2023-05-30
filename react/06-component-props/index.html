@@ -16,8 +16,9 @@
     <div id="root"></div>
     <script type="text/babel">
       // write follow-along code below
-      function Header() {
-        return <h1>TODO List</h1>;
+      function Header(props) {
+        console.log(props);
+        return <h1>{props.name}&apos;s TODO List</h1>;
       }
 
       function Subheader() {
@@ -27,7 +28,7 @@
       function App() {
         return (
           <div>
-            <Header />
+            <Header name="Jane" />
             <Subheader />
           </div>
         );

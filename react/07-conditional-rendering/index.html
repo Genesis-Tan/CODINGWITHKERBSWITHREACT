@@ -16,12 +16,18 @@
     <div id="root"></div>
     <script type="text/babel">
       // write follow-along code below
-      function ToDo() {
-        return null;
+      function ToDo({ title, isDone }) {
+        return <li className="todo">{title}</li>;
       }
 
       function ToDoList() {
-        return null;
+        return (
+          <ul>
+            <ToDo isDone={true} title="Pack clothes" />
+            <ToDo isDone={true} title="Prepare documents" />
+            <ToDo isDone={false} title="Charge phone" />
+          </ul>
+        );
       }
 
       function App() {
