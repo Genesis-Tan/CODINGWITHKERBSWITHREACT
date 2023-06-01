@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script
+      src="https://unpkg.com/react@18/umd/react.development.js"
+      crossorigin
+    ></script>
+    <script
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>JSX and Babel Exercise</title>
+  </head>
+  <body>
+    <div id="root">
+      <!-- TODO: convert the following html into JSX. Remove the html after doing so -->
+
+      <!-- convert HTML into JSX only until this point -->
+    </div>
+    <script type="text/babel">
+      function Header() {
+        return (
+          <div>
+            <div>
+              <h1>Hi!</h1>
+            </div>
+            <p
+              style={{
+                backgroundColor: "aqua",
+                padding: "1em 2em",
+                border: "1px solid black",
+                borderRadius: "5px",
+              }}
+            >
+              I want to be placed in JSX but there are a few things you have to
+              consider
+            </p>
+          </div>
+        );
+      }
+
+      function List() {
+        return (
+          <div>
+            <ul>
+              <li>Components should return a single root element</li>
+              <li>
+                {" "}
+                Every tag must have a closing tag (or self-closed if applicable)
+              </li>
+              <li>
+                <b>camelCase</b> most of the things
+              </li>
+              <li>
+                {" "}
+                Mind the reserved words like{" "}
+                <pre
+                  style={{
+                    display: "inline",
+                  }}
+                >
+                  class
+                </pre>{" "}
+                . Use{" "}
+                <pre
+                  style={{
+                    display: "inline",
+                  }}
+                >
+                  className
+                </pre>{" "}
+                instead
+              </li>
+              <li>Style needs to be an object</li>
+            </ul>
+          </div>
+        );
+      }
+
+      function Name(props) {
+        return (
+          <div>
+            <div>
+              <p>
+                By the way, these are my friends: {props.names.name1},{" "}
+                {props.names.name2}, and {props.names.name3}.
+              </p>
+            </div>
+            <p>
+              They have their profiles. I think it'd help if you create a{" "}
+              <i>Profile</i> component for them.
+            </p>
+          </div>
+        );
+      }
+
+      function Profile(props) {
+        const avatar = {
+          avatar1:
+            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWVEfnwz45lRaa0uQLIgHzTtyXLazY0RXO1w&usqp=CAU",
+          avatar2:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Bob_The_Builder_balloon_in_the_Dallas_Holiday_Parade.jpg/159px-Bob_The_Builder_balloon_in_the_Dallas_Holiday_Parade.jpg",
+          avatar3:
+            "https://live.staticflickr.com/2820/10382074376_33aee19f15_b.jpg",
+        };
+
+        const info = {
+          info1: "Profile picture of Alice",
+          info2: "Profile picture of Bob",
+          info3: "Profile picture of Charlie",
+        };
+
+        const style = { width: "64px", height: "64px", borderRadius: "5px" };
+        if (props.char === props.names.name1) {
+          return (
+            <ul style={{ listStyleType: "none" }}>
+              <li className="profile">
+                <img style={style} src={avatar.avatar1} alt={info.info1} />
+                <p>
+                  <b>{props.char}:</b> in Wonderland. Off to an adventure!
+                </p>
+              </li>
+            </ul>
+          );
+        }
+        if (props.char === props.names.name2) {
+          return (
+            <ul style={{ listStyleType: "none" }}>
+              <li className="profile">
+                <img style={style} src={avatar.avatar2} alt={info.info2} />
+                <p>
+                  <b>{props.char}:</b> the builder. Can he fix it? Yes, he can!
+                </p>
+              </li>
+            </ul>
+          );
+        }
+        if (props.char === props.names.name3) {
+          return (
+            <ul style={{ listStyleType: "none" }}>
+              <li className="profile">
+                <img style={style} src={avatar.avatar3} alt={info.info3} />
+                <p>
+                  <b>{props.char}:</b> from Peanuts. A true friend.
+                </p>
+              </li>
+            </ul>
+          );
+        }
+      }
+
+      function Cartoon(props) {
+        return (
+          <div>
+            <div>
+              <ul>
+                <Profile names={props.names} char={props.names.name1} />
+                <Profile names={props.names} char={props.names.name2} />
+                <Profile names={props.names} char={props.names.name3} />
+              </ul>
+            </div>
+            <p>
+              PS: don't forget to include react, react-dom, and babel scripts
+              inside the <i>head</i> element!
+            </p>
+          </div>
+        );
+      }
+
+      function App() {
+        const arr = { name1: "Alice", name2: "Bob", name3: "Charlie" };
+        return (
+          <>
+            <Header />
+            <List />
+            <Name names={arr} />
+            <Profile names={arr} />
+            <Cartoon names={arr} char={arr} />
+          </>
+        );
+      }
+
+      ReactDOM.render(
+        <div>
+          <App />
+        </div>,
+        document.getElementById("root")
+      );
+    </script>
+  </body>
+</html>
